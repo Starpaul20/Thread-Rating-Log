@@ -18,20 +18,16 @@ $sub_tabs['rating_logs'] = array(
 	'description' => $lang->rating_log_desc
 );
 
-$plugins->run_hooks("admin_tools_ratinglog_begin");
-
 if(!$mybb->input['action'])
 {
-	$plugins->run_hooks("admin_tools_ratinglog_start");
-	
 	$page->output_header($lang->rating_log);
-	
+
 	$page->output_nav_tabs($sub_tabs, 'rating_logs');
-	
+
 	$perpage = intval($mybb->input['perpage']);
 	if(!$perpage)
 	{
-		$perpage = $mybb->settings['threadsperpage'];
+		$perpage = intval($mybb->settings['threadsperpage']);
 	}
 
 	$where = 'WHERE 1=1';
@@ -75,7 +71,7 @@ if(!$mybb->input['action'])
 		{$where}
 	");
 	$rescount = $db->fetch_field($query, "count");
-	
+
 	// Figure out if we need to display multiple pages.
 	if($mybb->input['page'] != "last")
 	{
@@ -149,7 +145,7 @@ if(!$mybb->input['action'])
 		$table->construct_cell($lang->no_ratings, array("colspan" => "4"));
 		$table->construct_row();
 	}
-	
+
 	$table->output($lang->rating_log);
 
 	// Do we need to construct the pagination?
@@ -161,10 +157,10 @@ if(!$mybb->input['action'])
 	// Fetch filter options
 	$sortbysel[$mybb->input['sortby']] = "selected=\"selected\"";
 	$ordersel[$mybb->input['order']] = "selected=\"selected\"";
-	
+
 	$user_options[''] = $lang->all_users;
 	$user_options['0'] = '----------';
-	
+
 	$query = $db->query("
 		SELECT DISTINCT l.uid, u.username
 		FROM ".TABLE_PREFIX."threadratings l
@@ -183,7 +179,7 @@ if(!$mybb->input['action'])
 
 	$thread_options[''] = $lang->all_threads;
 	$thread_options['0'] = '----------';
-	
+
 	$query2 = $db->query("
 		SELECT DISTINCT l.tid, t.subject
 		FROM ".TABLE_PREFIX."threadratings l
@@ -201,7 +197,7 @@ if(!$mybb->input['action'])
 		'rating' => $lang->rating,
 		'thread' => $lang->thread_head
 	);
-	
+
 	$order_array = array(
 		'asc' => $lang->asc,
 		'desc' => $lang->desc
@@ -218,7 +214,7 @@ if(!$mybb->input['action'])
 	$buttons[] = $form->generate_submit_button($lang->filter_rating_log);
 	$form->output_submit_wrapper($buttons);
 	$form->end();
-	
+
 	$page->output_footer();
 }
 ?>

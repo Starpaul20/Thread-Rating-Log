@@ -3,7 +3,7 @@
  * Thread Rating Log
  * Copyright 2010 Starpaul20
  */
- 
+
 $l['can_manage_rating_logs'] = "Can manage thread rating logs?";
 $l['thread_rating_log'] = "Thread Rating Log";
 
