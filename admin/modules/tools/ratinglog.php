@@ -24,10 +24,15 @@ if(!$mybb->input['action'])
 
 	$page->output_nav_tabs($sub_tabs, 'rating_logs');
 
-	$perpage = intval($mybb->input['perpage']);
+	$perpage = $mybb->get_input('perpage', 1);
 	if(!$perpage)
 	{
-		$perpage = intval($mybb->settings['threadsperpage']);
+		if(!$mybb->settings['threadsperpage'] || (int)$mybb->settings['threadsperpage'] < 1)
+		{
+			$mybb->settings['threadsperpage'] = 20;
+		}
+
+		$perpage = $mybb->settings['threadsperpage'];
 	}
 
 	$where = 'WHERE 1=1';
@@ -35,13 +40,13 @@ if(!$mybb->input['action'])
 	// Searching for entries by a particular user
 	if($mybb->input['uid'])
 	{
-		$where .= " AND l.uid='".intval($mybb->input['uid'])."'";
+		$where .= " AND l.uid='".$mybb->get_input('uid', 1)."'";
 	}
 
 	// Searching for entries in a specific thread
 	if($mybb->input['tid'] > 0)
 	{
-		$where .= " AND l.tid='".intval($mybb->input['tid'])."'";
+		$where .= " AND l.tid='".$mybb->get_input('tid', 1)."'";
 	}
 
 	// Order?
@@ -75,10 +80,10 @@ if(!$mybb->input['action'])
 	// Figure out if we need to display multiple pages.
 	if($mybb->input['page'] != "last")
 	{
-		$pagecnt = intval($mybb->input['page']);
+		$pagecnt = $mybb->get_input('page', 1);
 	}
 
-	$postcount = intval($rescount);
+	$postcount = (int)$rescount;
 	$pages = $postcount / $perpage;
 	$pages = ceil($pages);
 
