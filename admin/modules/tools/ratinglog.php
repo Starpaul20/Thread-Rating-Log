@@ -156,7 +156,7 @@ if(!$mybb->input['action'])
 	// Do we need to construct the pagination?
 	if($rescount > $perpage)
 	{
-		echo draw_admin_pagination($pagecnt, $perpage, $rescount, "index.php?module=tools-ratinglog&amp;perpage=$perpage&amp;uid={$mybb->input['uid']}&amp;tid={$mybb->input['tid']}&amp;sortby={$mybb->input['sortby']}&amp;order={$order}")."<br />";
+		echo draw_admin_pagination($pagecnt, $perpage, $rescount, "index.php?module=tools-ratinglog&amp;perpage={$perpage}&amp;uid={$mybb->input['uid']}&amp;tid={$mybb->input['tid']}&amp;sortby={$mybb->input['sortby']}&amp;order={$order}")."<br />";
 	}
 
 	// Fetch filter options

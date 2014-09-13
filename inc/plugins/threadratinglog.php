@@ -64,7 +64,7 @@ function threadratinglog_admin_action_handler($actions)
 
 function threadratinglog_admin_permissions($admin_permissions)
 {
-  	global $db, $mybb, $lang;
+	global $db, $mybb, $lang;
 	$lang->load("tools_ratinglog");
 
 	$admin_permissions['ratinglog'] = $lang->can_manage_rating_logs;
