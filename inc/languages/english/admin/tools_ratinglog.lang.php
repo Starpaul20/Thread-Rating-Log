@@ -4,6 +4,9 @@
  * Copyright 2010 Starpaul20
  */
 
+$l['threadratinglog_info_name'] = "Thread Rating Log";
+$l['threadratinglog_info_desc'] = "Adds a log of all thread ratings viewable in the Admin CP.";
+
 $l['can_manage_rating_logs'] = "Can manage thread rating logs?";
 $l['thread_rating_log'] = "Thread Rating Log";
 

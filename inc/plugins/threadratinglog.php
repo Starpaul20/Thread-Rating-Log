@@ -18,9 +18,12 @@ $plugins->add_hook("admin_tools_permissions", "threadratinglog_admin_permissions
 // The information that shows up on the plugin manager
 function threadratinglog_info()
 {
+	global $lang;
+	$lang->load("tools_ratinglog");
+
 	return array(
-		"name"				=> "Thread Rating Log",
-		"description"		=> "Adds a log of all thread ratings viewable in the Admin CP.",
+		"name"				=> $lang->threadratinglog_info_name,
+		"description"		=> $lang->threadratinglog_info_desc,
 		"website"			=> "http://galaxiesrealm.com/index.php",
 		"author"			=> "Starpaul20",
 		"authorsite"		=> "http://galaxiesrealm.com/index.php",
