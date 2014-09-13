@@ -1,6 +1,6 @@
 ## INFORMATION ##
 
-Thread Rating Log (1.1.1) for MyBB 1.6
+Thread Rating Log (1.0) for MyBB 1.8
 Created by: Starpaul20
 Copyright: ©2010
 License: GPL
@@ -10,6 +10,8 @@ Adds a log of all thread ratings viewable in the Admin CP. The log will tell you
 The log can be found alongside of the other board logs under the 'Tools & Maintenance' section.
 
 This plugin offers full language support.
+
+The 'oldrelease' branch contains the 1.6 version of the plugin.
 
 
 ## INSTALLATION ##
