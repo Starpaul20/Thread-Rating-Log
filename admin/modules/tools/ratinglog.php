@@ -132,7 +132,10 @@ if(!$mybb->input['action'])
 			$logitem['profilelink'] = $lang->guest;
 		}
 		else
-		$logitem['profilelink'] = build_profile_link($username, $logitem['uid']);
+		{
+			$logitem['profilelink'] = build_profile_link($username, $logitem['uid']);
+		}
+
 		if($logitem['subject'])
 		{
 			$information = "<a href=\"../".get_thread_link($logitem['tid'])."\" target=\"_blank\">".htmlspecialchars_uni($logitem['subject'])."</a><br />";
@@ -212,7 +215,7 @@ if(!$mybb->input['action'])
 	$form_container = new FormContainer($lang->filter_rating_log);
 	$form_container->output_row($lang->user, "", $form->generate_select_box('uid', $user_options, $mybb->input['uid'], array('id' => 'uid')), 'uid');
 	$form_container->output_row($lang->thread, "", $form->generate_select_box('tid', $thread_options, $mybb->input['tid'], array('id' => 'tid')), 'tid');
-	$form_container->output_row($lang->sort_by, "", $form->generate_select_box('sortby', $sort_by, $mybb->input['sortby'], array('id' => 'sortby'))." {$lang->in} ".$form->generate_select_box('order', $order_array, $order, array('id' => 'order'))." {$lang->order}", 'order');	
+	$form_container->output_row($lang->sort_by, "", $form->generate_select_box('sortby', $sort_by, $mybb->input['sortby'], array('id' => 'sortby'))." {$lang->in} ".$form->generate_select_box('order', $order_array, $order, array('id' => 'order'))." {$lang->order}", 'order');
 	$form_container->output_row($lang->results_per_page, "", $form->generate_numeric_field('perpage', $perpage, array('id' => 'perpage', 'min' => 1)), 'perpage');
 
 	$form_container->end();
