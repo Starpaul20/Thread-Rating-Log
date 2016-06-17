@@ -126,7 +126,7 @@ if(!$mybb->input['action'])
 	{
 		$information = '';
 		$trow = alt_trow();
-		$username = format_name($logitem['username'], $logitem['usergroup'], $logitem['displaygroup']);
+		$username = format_name(htmlspecialchars_uni($logitem['username']), $logitem['usergroup'], $logitem['displaygroup']);
 		if($logitem['uid'] == 0)
 		{ 
 			$logitem['profilelink'] = $lang->guest;
@@ -182,7 +182,7 @@ if(!$mybb->input['action'])
 		{
 			$selected = "selected=\"selected\"";
 		}
-		$user_options[$user['uid']] = $user['username'];
+		$user_options[$user['uid']] = htmlspecialchars_uni($user['username']);
 	}
 
 	$thread_options[''] = $lang->all_threads;
