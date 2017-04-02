@@ -72,5 +72,3 @@ function threadratinglog_admin_permissions($admin_permissions)
 
 	return $admin_permissions;
 }
-
-?>

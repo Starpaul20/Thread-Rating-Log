@@ -33,5 +33,3 @@ $l['in'] = "in";
 $l['order'] = "order";
 $l['guest'] = "Guest";
 $l['order_added'] = "Order Added";
-
-?>
