@@ -1,3 +1,11 @@
+1.1 (June 30th, 2021)
+- Sanitized usernames
+- Removed PHP closing tags
+- Adding License file
+- Removed useless globals
+- Fixed PHP 8.0 errors
+- Sanitized thread subjects
+
 1.0.1 (March 6th, 2015)
 - Changed (int)$mybb->input to $mybb->get_input
 - Using generate_numeric_field function
